@@ -1,10 +1,10 @@
 <template>
     <div class="swiper-inner">
         <swiper :options="swiperOption">
-            <swiper-slide></swiper-slide>
-            <swiper-slide></swiper-slide>
-            <swiper-slide></swiper-slide>
-            <swiper-slide></swiper-slide>
+            <swiper-slide
+                v-for="item in contents"
+                :class="item.content"
+            ></swiper-slide>
         </swiper>
     </div>
 </template>
@@ -14,6 +14,12 @@ export default {
     name: "case",
     data() {
         return {
+            contents: [
+                { name: "交警大数据", content: "jiaojing" },
+                { name: "可视化", content: "keshihua" },
+                { name: "上合青岛", content: "shangheqingdao" },
+                { name: "金砖", content: "jinzhuan" }
+            ],
             swiperOption: {
                 effect: "coverflow",
                 grabCursor: true,
@@ -23,9 +29,9 @@ export default {
                 coverflowEffect: {
                     rotate: 50,
                     stretch: 0,
-                    depth: 190,
+                    depth: 300,
                     modifier: 1,
-                    slideShadows: true
+                    slideShadows: false
                 }
             }
         };
@@ -37,16 +43,29 @@ export default {
 @pw: 100/1920;
 @ph: 100/960;
 .swiper-inner {
-    width: 100%;
-    height: 400px;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    width: 1268px;
+    height: 630px;
+    display: flex;
+    align-items: center;
+    left: 74px;
+    top: 95px;
 }
 .swiper-slide {
     background-position: center;
     background-size: cover;
-    width: calc(~"555*@{pw}vw");
-    height: calc(~"475*@{ph}vh");
-    background-image: url("../assets/swiper_slide.png");
+    width: calc(~"562*@{pw}vw");
+    height: calc(~"672*@{ph}vh");
+    &.jinzhuan {
+        background-image: url("../assets/金砖.png");
+    }
+    &.keshihua {
+        background-image: url("../assets/可视化.png");
+    }
+    &.shangheqingdao {
+        background-image: url("../assets/上合青岛.png");
+    }
+    &.jiaojing {
+        background-image: url("../assets/交警大数据.png");
+    }
 }
 </style>

@@ -78,6 +78,9 @@ export default {
             .icon_product {
                 background: url("../assets/icon_product_selected.png") no-repeat;
             }
+            .icon_case {
+                background: url("../assets/icon_case_selected.png") no-repeat;
+            }
             .icon_honor {
                 background: url("../assets/icon_honor_selected.png") no-repeat;
             }

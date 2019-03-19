@@ -108,6 +108,9 @@ export default {
             } else {
                 this.$router.push("/business");
             }
+            for (let i of this.mainButtons) {
+                i.selected = i.link === "/business";
+            }
         }
     }
 };
@@ -151,13 +154,13 @@ export default {
     }
     .btn_home {
         position: absolute;
-        top: calc(~"56*@{ph}vh");
-        right: calc(~"82*@{pw}vw");
+        top: calc(~"45*@{ph}vh");
+        right: calc(~"69*@{pw}vw");
         display: flex;
         flex-direction: row;
         .icon_refresh {
-            width: calc(~"46*@{pw}vw");
-            height: calc(~"46*@{ph}vh");
+            width: calc(~"72*@{pw}vw");
+            height: calc(~"72*@{ph}vh");
             background: url("../assets/icon_return.png") no-repeat;
             background-size: cover;
             cursor: pointer;
@@ -167,8 +170,8 @@ export default {
             }
         }
         .icon_home {
-            width: calc(~"46*@{pw}vw");
-            height: calc(~"46*@{ph}vh");
+            width: calc(~"72*@{pw}vw");
+            height: calc(~"72*@{ph}vh");
             background: url("../assets/icon_home.png") no-repeat;
             background-size: cover;
             cursor: pointer;
