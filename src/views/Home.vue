@@ -33,6 +33,7 @@
                 ></main-button>
             </div>
         </div>
+        <div class="company"></div>
     </div>
 </template>
 
@@ -191,6 +192,15 @@ export default {
                 }
             }
         }
+    }
+    .company {
+        position: absolute;
+        right: (80/1920) * 100%;
+        bottom: (55/960) * 100%;
+        width: calc(~"422*@{pw}vw");
+        height: calc(~"50*@{ph}vh");
+        background: url("../assets/company.png") no-repeat;
+        background-size: contain;
     }
 }
 </style>

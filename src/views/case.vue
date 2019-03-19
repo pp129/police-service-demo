@@ -1,10 +1,10 @@
 <template>
     <div class="swiper-inner">
         <swiper :options="swiperOption">
-            <swiper-slide>Slide 1</swiper-slide>
-            <swiper-slide>Slide 2</swiper-slide>
-            <swiper-slide>Slide 3</swiper-slide>
-            <swiper-slide>Slide 4</swiper-slide>
+            <swiper-slide></swiper-slide>
+            <swiper-slide></swiper-slide>
+            <swiper-slide></swiper-slide>
+            <swiper-slide></swiper-slide>
         </swiper>
     </div>
 </template>
@@ -18,12 +18,12 @@ export default {
                 effect: "coverflow",
                 grabCursor: true,
                 centeredSlides: false,
-                slidesPerView: 4,
+                slidesPerView: "auto",
                 loop: true,
                 coverflowEffect: {
                     rotate: 50,
                     stretch: 0,
-                    depth: 100,
+                    depth: 190,
                     modifier: 1,
                     slideShadows: true
                 }
@@ -34,6 +34,8 @@ export default {
 </script>
 
 <style scoped lang="less">
+@pw: 100/1920;
+@ph: 100/960;
 .swiper-inner {
     width: 100%;
     height: 400px;
@@ -43,7 +45,8 @@ export default {
 .swiper-slide {
     background-position: center;
     background-size: cover;
-    width: 300px;
-    height: 300px;
+    width: calc(~"555*@{pw}vw");
+    height: calc(~"475*@{ph}vh");
+    background-image: url("../assets/swiper_slide.png");
 }
 </style>
