@@ -1,12 +1,6 @@
 <template>
     <div class="main_button">
-        <div
-            class="body"
-            :class="{ bodyActive: isBodyActive }"
-            @mouseenter="isBodyActive = true"
-            @mouseleave="isBodyActive = false"
-            @click="turnTo"
-        >
+        <div class="body" @click="turnTo">
             <i class="main_button_icon" :class="icon"></i>
             <span>{{ name }}</span>
         </div>
@@ -46,18 +40,46 @@ export default {
         background: url("../assets/main_button.png") no-repeat;
         background-size: contain;
         .main_button_icon {
+            width: 90px;
+            height: 90px;
+            display: inline-block;
+            margin-left: 13px;
+            &.icon_business {
+                background: url("../assets/icon_bussiness.png") no-repeat;
+            }
+            &.icon_product {
+                background: url("../assets/icon_product.png") no-repeat;
+            }
+            &.icon_case {
+                background: url("../assets/icon_case.png") no-repeat;
+            }
+            &.icon_honor {
+                background: url("../assets/icon_honor.png") no-repeat;
+            }
         }
         span {
             font-size: 3rem;
             color: #e7f3f8;
             font-weight: bold;
-            margin-left: calc(~"104*@{pw}vw");
+            margin-left: calc(~"14*@{pw}vw");
         }
-        &.bodyActive {
-            background: url("../assets/main_button_select.png") no-repeat;
-            background-size: contain;
-            span {
-                color: #06e0fc;
+    }
+    &.bodyActive {
+        background: url("../assets/main_button_selected.png") no-repeat;
+        background-size: contain;
+        span {
+            color: #06e0fc;
+        }
+        .body {
+            .icon_business {
+                background: url("../assets/icon_bussiness_selected.png")
+                    no-repeat;
+            }
+            .icon_product {
+                background: url("../assets/icon_product_selected.png") no-repeat;
+            }
+            .icon_honor {
+                background: url("../assets/icon_honor_selected.png") no-repeat;
             }
         }
     }

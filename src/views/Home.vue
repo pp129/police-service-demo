@@ -23,9 +23,13 @@
             </div>
             <div class="main_buttons">
                 <main-button
+                    ref="mainButton"
                     class="button_item"
                     v-for="(item, index) in mainButtons"
-                    :class="'button_item_' + (index + 1)"
+                    :class="[
+                        'button_item_' + (index + 1),
+                        item.selected ? 'bodyActive' : ''
+                    ]"
                     :name="item.name"
                     :link="item.link"
                     :icon="item.icon"
@@ -56,22 +60,26 @@ export default {
                 {
                     name: "业务介绍",
                     link: "/business",
-                    icon: "icon_business"
+                    icon: "icon_business",
+                    selected: true
                 },
                 {
                     name: "产品介绍",
                     link: "/product",
-                    icon: "icon_product"
+                    icon: "icon_product",
+                    selected: false
                 },
                 {
                     name: "成功案例",
                     link: "/case",
-                    icon: "icon_product"
+                    icon: "icon_case",
+                    selected: false
                 },
                 {
                     name: "荣誉资质",
                     link: "/honor",
-                    icon: "icon_product"
+                    icon: "icon_honor",
+                    selected: false
                 }
             ]
         };
@@ -89,6 +97,9 @@ export default {
             link === "/product"
                 ? (this.onlyMain = true)
                 : (this.onlyMain = false);
+            for (let i of this.mainButtons) {
+                i.selected = link === i.link;
+            }
         },
         returnHome() {
             this.onlyMain = false;
@@ -166,6 +177,9 @@ export default {
                 background-size: cover;
             }
         }
+    }
+    .only_main {
+        height: 83.125vh;
     }
     .main {
         display: flex;
