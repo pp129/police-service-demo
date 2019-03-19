@@ -24,12 +24,12 @@ export default {
                 effect: "coverflow",
                 grabCursor: true,
                 centeredSlides: false,
-                slidesPerView: "auto",
+                slidesPerView: 3.5,
                 loop: true,
                 coverflowEffect: {
                     rotate: 50,
                     stretch: 0,
-                    depth: 300,
+                    depth: 100,
                     modifier: 1,
                     slideShadows: false
                 }
@@ -43,16 +43,16 @@ export default {
 @pw: 100/1920;
 @ph: 100/960;
 .swiper-inner {
-    width: 1268px;
-    height: 630px;
+    width: calc(~"1268*@{pw}vw");
+    height: calc(~"630*@{ph}vh");
     display: flex;
     align-items: center;
-    left: 74px;
-    top: 95px;
+    left: calc(~"74*@{pw}vw");
+    top: calc(~"95*@{ph}vh");
 }
 .swiper-slide {
     background-position: center;
-    background-size: cover;
+    background-size: 100% 100%;
     width: calc(~"562*@{pw}vw");
     height: calc(~"672*@{ph}vh");
     &.jinzhuan {
