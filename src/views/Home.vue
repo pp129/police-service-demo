@@ -94,9 +94,7 @@ export default {
         changeMain(link) {
             this.$router.push(link);
             this.path = link;
-            link === "/product"
-                ? (this.onlyMain = true)
-                : (this.onlyMain = false);
+            this.onlyMain = link === "/product" || link === "/honor";
             for (let i of this.mainButtons) {
                 i.selected = link === i.link;
             }

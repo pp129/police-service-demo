@@ -31,6 +31,8 @@ export default {
 };
 </script>
 <style scoped lang="less">
+@pw: 100/1920;
+@ph: 100/960;
 .product {
     height: 100%;
     .container {
@@ -62,22 +64,27 @@ export default {
             display: flex;
             justify-content: center;
             .item_content {
-                width: 1412px;
-                height: 711px;
+                width: calc(~"1412*@{pw}vw");
+                height: calc(~"711*@{ph}vh");
                 &.product_1 {
                     background: url("../assets/product_1.png") no-repeat;
+                    background-size: contain;
                 }
                 &.product_2 {
                     background: url("../assets/product_2.png") no-repeat;
+                    background-size: contain;
                 }
                 &.product_3 {
                     background: url("../assets/product_3.png") no-repeat;
+                    background-size: contain;
                 }
                 &.product_4 {
                     background: url("../assets/product_4.png") no-repeat;
+                    background-size: contain;
                 }
                 &.product_5 {
                     background: url("../assets/product_5.png") no-repeat;
+                    background-size: contain;
                 }
             }
         }

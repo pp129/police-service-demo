@@ -40,21 +40,25 @@ export default {
         background: url("../assets/main_button.png") no-repeat;
         background-size: contain;
         .main_button_icon {
-            width: 90px;
-            height: 90px;
+            width: calc(~"90*@{pw}vw");
+            height: calc(~"90*@{ph}vh");
             display: inline-block;
-            margin-left: 13px;
+            margin-left: calc(~"13*@{pw}vw");
             &.icon_business {
                 background: url("../assets/icon_bussiness.png") no-repeat;
+                background-size: cover;
             }
             &.icon_product {
                 background: url("../assets/icon_product.png") no-repeat;
+                background-size: cover;
             }
             &.icon_case {
                 background: url("../assets/icon_case.png") no-repeat;
+                background-size: cover;
             }
             &.icon_honor {
                 background: url("../assets/icon_honor.png") no-repeat;
+                background-size: cover;
             }
         }
         span {
@@ -72,17 +76,20 @@ export default {
         }
         .body {
             .icon_business {
-                background: url("../assets/icon_bussiness_selected.png")
-                    no-repeat;
+                background: url("../assets/icon_bussiness_selected.png") no-repeat;
+                background-size: cover;
             }
             .icon_product {
                 background: url("../assets/icon_product_selected.png") no-repeat;
+                background-size: cover;
             }
             .icon_case {
                 background: url("../assets/icon_case_selected.png") no-repeat;
+                background-size: cover;
             }
             .icon_honor {
                 background: url("../assets/icon_honor_selected.png") no-repeat;
+                background-size: cover;
             }
         }
     }
