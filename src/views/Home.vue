@@ -1,18 +1,196 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div class="home">
+        <div class="title">
+            <div class="logo_content">
+                <img src="" :class="logo" alt="" />
+                <span>{{ title }}</span>
+            </div>
+        </div>
+        <div class="btn_home">
+            <div
+                class="icon_refresh"
+                v-if="onlyMain"
+                @click="changeMain('business')"
+            ></div>
+            <div class="icon_home" @click="returnHome()"></div>
+        </div>
+        <div class="only_main" v-if="onlyMain">
+            <router-view></router-view>
+        </div>
+        <div class="main" v-if="!onlyMain">
+            <div class="main_body">
+                <router-view class="main_body_content"></router-view>
+            </div>
+            <div class="main_buttons">
+                <main-button
+                    class="button_item"
+                    v-for="(item, index) in mainButtons"
+                    :class="'button_item_' + (index + 1)"
+                    :name="item.name"
+                    :link="item.link"
+                    :icon="item.icon"
+                    @callback="changeMain"
+                ></main-button>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
 export default {
-  name: 'home',
-  components: {
-    HelloWorld
-  }
-}
+    name: "home",
+    mounted() {
+        this.init();
+    },
+    components: {
+        mainButton: () => import("@/components/mainButton")
+    },
+    data() {
+        return {
+            path: "", //当前路由
+            logo: "logo",
+            title: "北斗智慧警务云平台", //标题文字
+            onlyMain: false, //是否只显示内容主体 --- 产品介绍
+            mainButtons: [
+                {
+                    name: "业务介绍",
+                    link: "/business",
+                    icon: "icon_business"
+                },
+                {
+                    name: "产品介绍",
+                    link: "/product",
+                    icon: "icon_product"
+                },
+                {
+                    name: "成功案例",
+                    link: "/case",
+                    icon: "icon_product"
+                },
+                {
+                    name: "荣誉资质",
+                    link: "/honor",
+                    icon: "icon_product"
+                }
+            ]
+        };
+    },
+    methods: {
+        init() {
+            this.path = this.$route.path;
+            if (this.path.indexOf("product") > 0) {
+                this.onlyMain = true;
+            }
+        },
+        changeMain(link) {
+            this.$router.push(link);
+            this.path = link;
+            link === "/product"
+                ? (this.onlyMain = true)
+                : (this.onlyMain = false);
+        },
+        returnHome() {
+            this.onlyMain = false;
+            if (this.path === "/business") {
+                window.location.href = "https://www.baidu.com/"; //http是必要的
+            } else {
+                this.$router.push("/business");
+            }
+        }
+    }
+};
 </script>
+<style lang="less" scoped>
+@pw: 100/1920;
+@ph: 100/960;
+.home {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background: url("../assets/bg.png") no-repeat;
+    background-size: cover;
+    .title {
+        height: 16.875vh;
+        .logo_content {
+            height: calc(~"60*@{ph}vh");
+            margin-top: calc(~"28*@{ph}vh");
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img {
+                display: inline-block;
+                width: 7.8rem;
+                height: 6rem;
+                &.logo {
+                    background: url("../assets/logo.png") no-repeat;
+                }
+            }
+            span {
+                font-size: 5.6rem;
+                font-weight: 500;
+                color: rgba(254, 254, 245, 1);
+            }
+        }
+    }
+    .btn_home {
+        position: absolute;
+        top: calc(~"56*@{ph}vh");
+        right: calc(~"82*@{pw}vw");
+        display: flex;
+        flex-direction: row;
+        .icon_refresh {
+            width: calc(~"46*@{pw}vw");
+            height: calc(~"46*@{ph}vh");
+            background: url("../assets/icon_return.png") no-repeat;
+            background-size: cover;
+            cursor: pointer;
+            &:hover {
+                background: url("../assets/icon_return_selected.png") no-repeat;
+                background-size: cover;
+            }
+        }
+        .icon_home {
+            width: calc(~"46*@{pw}vw");
+            height: calc(~"46*@{ph}vh");
+            background: url("../assets/icon_home.png") no-repeat;
+            background-size: cover;
+            cursor: pointer;
+            &:hover {
+                background: url("../assets/icon_home_selected.png") no-repeat;
+                background-size: cover;
+            }
+        }
+    }
+    .main {
+        display: flex;
+        flex-direction: row;
+        height: 83.125vh;
+        .main_body {
+            width: (1418/1920) * 100%;
+            position: relative;
+            .main_body_content {
+                position: absolute;
+                &.business {
+                    left: calc(~"215*@{pw}vw");
+                    bottom: (100/960) * 100%;
+                }
+            }
+        }
+        .main_buttons {
+            width: ((1920-1418)/1920) * 100%;
+            .button_item {
+                margin-bottom: calc(~"76*@{ph}vh"); //76px
+                &.button_item_1,
+                &.button_item_4 {
+                    margin-left: 3.9rem;
+                }
+            }
+        }
+    }
+}
+</style>
