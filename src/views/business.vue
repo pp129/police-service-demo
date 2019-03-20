@@ -32,9 +32,9 @@ export default {
         return {
             balls: [
                 require("../assets/business_content_icon_gongan.png"),
-                require("../assets/business_content_icon_gongan.png"),
-                require("../assets/business_content_icon_gongan.png"),
-                require("../assets/business_content_icon_gongan.png")
+                require("../assets/business_content_icon_haifang.png"),
+                require("../assets/business_content_icon_jiaoguan.png"),
+                require("../assets/business_contente_icon_bianjian.png")
             ]
         };
     }
