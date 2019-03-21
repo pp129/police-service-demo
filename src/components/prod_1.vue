@@ -1,5 +1,5 @@
 <template>
-    <div class="prod_content_1 prod_common">
+    <div class="prod_1 prod_common">
         <div class="title">
             <p>可视化勤务指挥作战平台</p>
             <hr />
@@ -19,7 +19,7 @@ export default {
 
 <style scoped lang="less">
 @import "../style/prod-common";
-.prod_content_1 {
+.prod_1 {
     .pic {
         position: absolute;
         left: 50%;

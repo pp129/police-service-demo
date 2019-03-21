@@ -20,7 +20,8 @@ export default {
         contentSec: () => import("@/components/prod_2"),
         contentThird: () => import("@/components/prod_3"),
         contentForth: () => import("@/components/prod_4"),
-        contentFifth: () => import("@/components/prod_5")
+        contentFifth: () => import("@/components/prod_5"),
+        contentSixth: () => import("@/components/prod_6")
     },
     data() {
         return {
@@ -33,29 +34,34 @@ export default {
             //顺序：1.可视化勤务2.警卫安保3.警情跟踪4.交警大数据5.执法平台6.海防警务指挥7.海防船舶8.海防治安9.海港边检10.便民服务
             contents: [
                 {
-                    name: "警情跟踪管理系统",
+                    name: "可视化勤务",
                     content: "product_1",
                     component: "contentFirst"
                 },
                 {
-                    name: "警卫安保指挥调度平台",
+                    name: "警卫安保",
                     content: "product_2",
                     component: "contentSec"
                 },
                 {
-                    name: "可视化勤务指挥作战平台",
+                    name: "警情跟踪",
                     content: "product_3",
                     component: "contentThird"
                 },
                 {
-                    name: "海港边检智能管理系统",
+                    name: "交警大数据",
                     content: "product_4",
                     component: "contentForth"
                 },
                 {
-                    name: "自助报警服务平台",
+                    name: "执法平台",
                     content: "product_5",
                     component: "contentFifth"
+                },
+                {
+                    name: "执法平台",
+                    content: "product_6",
+                    component: "contentSixth"
                 }
             ]
         };
