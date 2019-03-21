@@ -1,0 +1,38 @@
+@pw: 100/1920;
+@ph: 100/960;
+.prod_common {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .title {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        p {
+            margin: 0;
+            font-size: 38px;
+            font-weight: bold;
+            color: rgba(229, 240, 246, 1);
+            line-height: 54px;
+            background: linear-gradient(0deg, rgba(6, 217, 252, 1) 0%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        hr {
+            height: 11px;
+            width: 373px;
+            background: url("../assets/prod_title_bottom.png") no-repeat;
+            border: 0;
+            //margin: 28px 0 67px 0;
+            margin-top: calc(~"28*@{ph}vh");
+            margin-bottom: calc(~"67*@{ph}vh");
+            align-self: center;
+        }
+    }
+    .main {
+        position: relative;
+        width: 1412px;
+        height: 664px;
+        background: url("../assets/边框.png") no-repeat;
+    }
+}
