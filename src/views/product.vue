@@ -2,7 +2,7 @@
     <div class="product">
         <div class="tip">产品介绍</div>
         <swiper :options="swiperOption" class="container">
-            <swiper-slide v-for="item in contents">
+            <swiper-slide v-for="item in contents" :key="item.name">
                 <div class="item_content" :class="item.content">
                     <component :is="item.component"></component>
                 </div>

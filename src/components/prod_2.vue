@@ -1,7 +1,7 @@
 <template>
     <div class="prod_2 prod_common">
         <div class="title">
-            警卫安保指挥调度平台
+            <p>警卫安保指挥调度平台</p>
             <hr />
         </div>
         <div class="main">

@@ -1,7 +1,7 @@
 <template>
     <div class="prod_content_1 prod_common">
         <div class="title">
-            可视化勤务指挥作战平台
+            <p>可视化勤务指挥作战平台</p>
             <hr />
         </div>
         <div class="main">

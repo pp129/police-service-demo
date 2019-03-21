@@ -1,7 +1,7 @@
 <template>
     <div class="prod_3 prod_common">
         <div class="title">
-            警情跟踪管理系统
+            <p>警情跟踪管理系统</p>
             <hr />
         </div>
         <div class="main">
