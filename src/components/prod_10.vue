@@ -7,9 +7,7 @@
             <hr />
         </div>
         <div class="main">
-            <div class="text">
-
-            </div>
+            <div class="text"></div>
             <div class="pic"></div>
         </div>
     </div>
@@ -21,7 +19,7 @@ export default {
 };
 </script>
 
-<style scoped lang="less">
+<style scoped lang="less" type="text/less">
 @import "../style/prod-common";
 .prod_10 {
     .pic {
