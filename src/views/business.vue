@@ -12,6 +12,7 @@
                 <div class="base u_p3d">
                     <div
                         v-for="(item, index) in balls"
+                        :key="index"
                         class="ball_base u_p3d"
                         :class="'ball_' + (index + 1)"
                     >
