@@ -5,7 +5,10 @@
             <hr />
         </div>
         <div class="main">
-            <div class="text"></div>
+            <div class="text">
+                对警情、处警、跟踪、派送、处理、监督等全过程管理，实现对
+                接处警各个环节的监督和评价。
+            </div>
             <div class="pic"></div>
         </div>
     </div>
@@ -20,7 +23,18 @@ export default {
 <style scoped lang="less">
 @import "../style/prod-common";
 .prod_3 {
+    .text {
+        width: 1008px;
+        padding-top: 74px;
+    }
     .pic {
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        margin-left: -513.5px;
+        width: 1027px;
+        height: 415px;
+        background: url("../assets/系统功能.png") no-repeat;
     }
 }
 </style>
