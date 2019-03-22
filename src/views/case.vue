@@ -3,6 +3,7 @@
         <swiper :options="swiperOption">
             <swiper-slide
                 v-for="item in contents"
+                :key="item.name"
                 :class="item.content"
             ></swiper-slide>
         </swiper>
