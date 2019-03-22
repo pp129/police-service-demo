@@ -21,7 +21,11 @@ export default {
         contentThird: () => import("@/components/prod_3"),
         contentForth: () => import("@/components/prod_4"),
         contentFifth: () => import("@/components/prod_5"),
-        contentSixth: () => import("@/components/prod_6")
+        contentSixth: () => import("@/components/prod_6"),
+        contentSeventh: () => import("@/components/prod_7"),
+        contentEighth: () => import("@/components/prod_8"),
+        contentNinth: () => import("@/components/prod_9"),
+        contentTenth: () => import("@/components/prod_10")
     },
     data() {
         return {
@@ -59,9 +63,29 @@ export default {
                     component: "contentFifth"
                 },
                 {
-                    name: "执法平台",
+                    name: "海防警务指挥",
                     content: "product_6",
                     component: "contentSixth"
+                },
+                {
+                    name: "海防船舶",
+                    content: "product_7",
+                    component: "contentSeventh"
+                },
+                {
+                    name: "海防治安",
+                    content: "product_8",
+                    component: "contentEighth"
+                },
+                {
+                    name: "海港边检",
+                    content: "product_9",
+                    component: "contentNinth"
+                },
+                {
+                    name: "便民服务",
+                    content: "product_10",
+                    component: "contentTenth"
                 }
             ]
         };

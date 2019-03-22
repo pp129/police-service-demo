@@ -1,25 +1,23 @@
 <template>
     <div class="honor">
-        <div class="swiper-container">
-            <swiper :options="swiperOption">
-                <swiper-slide
-                    v-for="item in contents"
-                    class="content"
-                    :class="item.content"
-                ></swiper-slide>
-            </swiper>
-        </div>
-        <div class="list-container">
-            <ul>
-                <li v-for="(items, index) in list">
-                    <span>{{ items.item }}</span>
-                    <ul v-if="items.children" :class="'items_' + (index + 1)">
-                        <li v-for="child in items.children">
-                            <span> {{ child.item }}</span>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+        <div class="title">荣誉资质</div>
+        <div class="main">
+            <div class="pic"></div>
+            <div class="list-container">
+                <ul>
+                    <li v-for="(items, index) in list">
+                        <span>{{ items.item }}</span>
+                        <ul
+                            v-if="items.children"
+                            :class="'items_' + (index + 1)"
+                        >
+                            <li v-for="child in items.children">
+                                <span> {{ child.item }}</span>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </template>
@@ -61,8 +59,8 @@ export default {
                         { item: "移动执法信息管理系统V1.0" }
                     ]
                 }
-            ],
-            swiperOption: {
+            ]
+            /*swiperOption: {
                 effect: "coverflow",
                 grabCursor: true,
                 centeredSlides: false,
@@ -75,7 +73,7 @@ export default {
                     modifier: 1,
                     slideShadows: false
                 }
-            }
+            }*/
         };
     }
 };
@@ -86,36 +84,46 @@ export default {
 @ph: 100/960;
 .honor {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     height: 83.125vh;
-    .swiper-container {
-        width: calc(~"1268*@{pw}vw");
-        .swiper-slide {
-            background-position: center;
-            background-size: cover;
-            width: 300px;
-            height: 300px;
-            &.content {
-                background: white;
-                &.content1 {
-                }
-            }
-        }
+    .title {
+        justify-self: center;
+        font-size: 38px;
+        font-weight: bold;
+        color: rgba(229, 240, 246, 1);
+        margin-top: 40px;
+        background: linear-gradient(0deg, rgba(6, 217, 252, 1) 0%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
-
-    .list-container {
-        text-align: left;
-        ul,
-        li {
-            list-style: disc;
-            color: blue;
-            span {
-                color: white;
-            }
-            .items_6 {
-                padding-inline-start: 60px;
-                li {
-                    list-style: none;
+    .main {
+        display: flex;
+        flex-direction: row;
+        .pic {
+            width: 1149px;
+            height: 682px;
+            background: url("../assets/荣誉资质.png");
+            margin-top: 98px;
+        }
+        .list-container {
+            text-align: left;
+            ul,
+            li {
+                list-style: disc;
+                color: #0ff3f7;
+                font-size: 28px;
+                width: 100%;
+                span {
+                    font-size: 28px;
+                    font-weight: 500;
+                    color: rgba(232, 243, 249, 1);
+                    line-height: 45px;
+                }
+                .items_6 {
+                    padding-inline-start: 6rem;
+                    li {
+                        list-style: none;
+                    }
                 }
             }
         }
