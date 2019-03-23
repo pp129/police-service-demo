@@ -113,7 +113,7 @@ export default {
     }
 };
 </script>
-<style lang="less" scoped>
+<style lang="less" scoped type="text/less">
 @pw: 100/1920;
 @ph: 100/960;
 .home {
@@ -193,7 +193,7 @@ export default {
                 position: absolute;
                 &.business {
                     left: calc(~"215*@{pw}vw");
-                    bottom: (100/960) * 100%;
+                    //bottom: (100/960) * 100%;
                 }
             }
         }

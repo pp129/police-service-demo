@@ -16,7 +16,7 @@ export default {
 };
 </script>
 
-<style scoped lang="less">
+<style scoped lang="less" type="text/less">
 @import "../style/prod-common";
 .prod_8 {
 }

@@ -42,7 +42,7 @@ export default {
 };
 </script>
 
-<style scoped lang="less">
+<style scoped lang="less" type="text/less">
 @pw: 100/1920;
 @ph: 100/960;
 .business {
@@ -50,10 +50,10 @@ export default {
     height: calc(~"695*@{ph}vh");
     width: calc(~"1031*@{pw}vw");
     .text {
-        text-indent: 5.6rem;
+        text-indent: 6rem;
         text-align: left;
         color: #e7f3f9;
-        font-size: 2.8rem;
+        font-size: 3rem;
     }
 }
 @import "../style/ball-animation";
