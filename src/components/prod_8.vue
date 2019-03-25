@@ -43,13 +43,14 @@ export default {
             swiperOption: {
                 effect: "coverflow",
                 grabCursor: true,
-                centeredSlides: false,
-                slidesPerView: 2,
-                loop: false,
+                centeredSlides: true,
+                slidesPerView: "auto",
+                // loop: true,
+                autoplay: true,
                 coverflowEffect: {
-                    rotate: 0,
-                    stretch: 120,
-                    depth: 150,
+                    rotate: 10,
+                    stretch: 110,
+                    depth: 200,
                     modifier: 1,
                     slideShadows: false
                 }
@@ -77,12 +78,35 @@ export default {
             width: calc(~"1426px - 342px");
             float: right;
             &.swiper-inner {
-                width: 987px;
+                /*width: 987px;*/
                 height: calc(~"610*@{ph}vh");
                 .swiper-slide {
-                    .img {
+                    width: 802px;
+                    height: 490px;
+                    background: url("../assets/海防治安边框2.png") no-repeat
+                        center;
+                    background-size: 100% 100%;
+                    position: relative;
+                    overflow: hidden;
+                    img {
+                        position: absolute;
+                        top: 10px;
+                        left: 10px;
                         width: calc(~"778*@{pw}vw");
                         height: calc(~"418*@{ph}vh");
+                    }
+                    &.swiper-slide-active {
+                        width: calc(~"988*@{pw}vw");
+                        height: calc(~"618*@{ph}vh");
+                        background: url("../assets/海防治安边框1+.png")
+                            no-repeat center;
+                        left: -50px;
+                        img {
+                            top: 58px;
+                            left: 98px;
+                            width: calc(~"778*@{pw}vw");
+                            height: calc(~"376*@{ph}vh");
+                        }
                     }
                 }
             }
