@@ -5,7 +5,12 @@
             <hr />
         </div>
         <div class="main">
-            <div class="text"></div>
+            <div class="text">
+                平台利用全国领先的视频跟随、灯态控制、时空预警等技术，
+                按照“事前规划、事中跟踪、事后研判”的思路，汇聚公安特勤资
+                源，实现警卫安保全过程的可视化预案制定、推演、跟踪、研判和
+                归档。
+            </div>
             <div class="pic"></div>
         </div>
     </div>
@@ -20,6 +25,10 @@ export default {
 <style scoped lang="less" type="text/less">
 @import "../style/prod-common";
 .prod_2 {
+    .text {
+        width: 971px;
+        padding-top: 60px;
+    }
     .pic {
         position: absolute;
         left: 50%;

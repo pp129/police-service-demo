@@ -27,11 +27,21 @@ export default {
 <style scoped lang="less" type="text/less">
 @import "../style/prod-common";
 .prod_5 {
-    .pic {
-    }
-    .text {
-        width: 1078px;
-        padding-top: 60px;
+    .main {
+        top: -60px;
+        .pic {
+            width: 1037px;
+            height: 328px;
+            background: url("../assets/执法平台.png");
+            position: absolute;
+            left: 50%;
+            bottom: -58px;
+            margin-left: -518.5px;
+        }
+        .text {
+            width: 1078px;
+            padding-top: 60px;
+        }
     }
 }
 </style>

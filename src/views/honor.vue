@@ -100,9 +100,9 @@ export default {
         display: flex;
         flex-direction: row;
         .pic {
-            width: 1149px;
-            height: 682px;
-            background: url("../assets/荣誉资质.png");
+            width: 988px;
+            height: 574px;
+            background: url("../assets/荣誉.png");
             margin-top: 98px;
         }
         .list-container {
