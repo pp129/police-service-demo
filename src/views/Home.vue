@@ -81,19 +81,37 @@ export default {
                     icon: "icon_honor",
                     selected: false
                 }
-            ]
+            ],
+            playIndex: 0,
+            delay: 8000,
+            timer: null
         };
     },
     methods: {
         init() {
             this.path = this.$route.path;
+            // console.log(this.path);
+            this.playIndex = _.findIndex(this.mainButtons, r => {
+                return r.link === this.path;
+            });
             if (this.path.indexOf("product") > 0) {
                 this.onlyMain = true;
             }
+            this.autoPlay();
         },
         changeMain(link) {
             this.$router.push(link);
             this.path = link;
+            this.playIndex = _.findIndex(this.mainButtons, r => {
+                return r.link === this.path;
+            });
+            if (this.playIndex === 1) {
+                this.resetInterval(80000);
+            } else if (this.playIndex === 2) {
+                this.resetInterval(36000);
+            } else {
+                this.resetInterval(8000);
+            }
             this.onlyMain = link === "/product" || link === "/honor";
             for (let i of this.mainButtons) {
                 i.selected = link === i.link;
@@ -109,7 +127,28 @@ export default {
             for (let i of this.mainButtons) {
                 i.selected = i.link === "/business";
             }
+            this.playIndex = 0;
+            this.resetInterval(8000);
+        },
+        autoPlay() {
+            this.timer = setInterval(() => {
+                if (this.playIndex < this.mainButtons.length - 1) {
+                    this.playIndex++;
+                } else {
+                    this.playIndex = 0;
+                }
+                let link = this.mainButtons[this.playIndex].link;
+                this.changeMain(link);
+            }, this.delay);
+        },
+        resetInterval(delay) {
+            clearInterval(this.timer);
+            this.delay = delay;
+            this.autoPlay();
         }
+    },
+    destroyed() {
+        clearInterval(this.timer);
     }
 };
 </script>

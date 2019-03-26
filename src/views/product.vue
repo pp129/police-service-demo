@@ -2,7 +2,11 @@
     <div class="product">
         <div class="tip">产品介绍</div>
         <swiper :options="swiperOption" class="container">
-            <swiper-slide v-for="item in contents" :key="item.name" class="swiper-no-swiping">
+            <swiper-slide
+                v-for="item in contents"
+                :key="item.name"
+                class="swiper-no-swiping"
+            >
                 <div class="item_content" :class="item.content">
                     <component :is="item.component"></component>
                 </div>
@@ -30,7 +34,10 @@ export default {
     data() {
         return {
             swiperOption: {
-                noSwiping : true,
+                noSwiping: true,
+                autoplay: {
+                    delay: 8000
+                },
                 navigation: {
                     nextEl: ".swiper-button-next",
                     prevEl: ".swiper-button-prev"

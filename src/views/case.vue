@@ -33,6 +33,9 @@ export default {
                 }
             ],
             swiperOption: {
+                autoplay: {
+                    delay: 8000
+                },
                 effect: "coverflow",
                 grabCursor: true,
                 centeredSlides: false,
