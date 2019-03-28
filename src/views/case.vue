@@ -40,11 +40,11 @@ export default {
                 grabCursor: true,
                 centeredSlides: false,
                 slidesPerView: "auto",
-                loop: true,
+                // loop: true,
                 coverflowEffect: {
                     rotate: 40,
-                    stretch: 280,
-                    depth: 240,
+                    stretch: 150,
+                    depth: 800,
                     modifier: 1,
                     slideShadows: false
                 }
@@ -58,7 +58,7 @@ export default {
 @pw: 100/1920;
 @ph: 100/960;
 .swiper-inner {
-    width: calc(~"1268*@{pw}vw");
+    width: calc(~"1301*@{pw}vw");
     height: calc(~"630*@{ph}vh");
     display: flex;
     align-items: center;

@@ -15,10 +15,10 @@
                 </div>
                 <div class="docks">
                     <div class="docks_item" v-for="dock in docks">
-                        <div class="dock_pic"></div>
                         <div class="dock_text">{{ dock }}</div>
+                        <div class="dock_pic"></div>
                     </div>
-                    <div class="dock_pic"></div>
+                   <!-- <div class="dock_pic"></div>-->
                 </div>
             </div>
             <div class="rt">
@@ -39,6 +39,7 @@ export default {
     data() {
         return {
             docks: [
+                "交通拥堵指数标准制定与评定",
                 "综合路况判断与发布",
                 "交通事故分级与预警",
                 "交通OD分析",

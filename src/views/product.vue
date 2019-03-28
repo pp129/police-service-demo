@@ -111,13 +111,15 @@ export default {
         position: absolute;
         top: 0;
         left: 59px;
-        width: 318px;
-        height: 68px;
-        background: url("../assets/标题.png") no-repeat;
-        font-size: 3.4rem;
+        width: 309px;
+        height: 66px;
+        background: url("../assets/标题2.png") no-repeat;
+        font-size: 3rem;
         color: #fcfdfd;
         font-weight: 500;
-        line-height: 68px;
+        line-height: 66px;
+        text-align: left;
+        text-indent: 70px;
     }
     .container {
         .swiper-button-prev {
