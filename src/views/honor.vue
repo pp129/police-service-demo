@@ -5,13 +5,13 @@
             <div class="pic"></div>
             <div class="list-container">
                 <ul>
-                    <li v-for="(items, index) in list">
+                    <li v-for="(items, index) in list" :key="items.item">
                         <span>{{ items.item }}</span>
                         <ul
                             v-if="items.children"
                             :class="'items_' + (index + 1)"
                         >
-                            <li v-for="child in items.children">
+                            <li v-for="child in items.children" :key="child.item">
                                 <span> {{ child.item }}</span>
                             </li>
                         </ul>
@@ -81,7 +81,7 @@ export default {
 
 <style scoped lang="less">
 @pw: 100/1920;
-@ph: 100/960;
+@ph: 100/1080;
 .honor {
     display: flex;
     flex-direction: column;

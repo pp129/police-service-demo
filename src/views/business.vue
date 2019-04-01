@@ -44,7 +44,7 @@ export default {
 
 <style scoped lang="less" type="text/less">
 @pw: 100/1920;
-@ph: 100/960;
+@ph: 100/1080;
 .business {
     background-size: contain;
     height: calc(~"695*@{ph}vh");

@@ -56,7 +56,7 @@ export default {
 
 <style scoped lang="less">
 @pw: 100/1920;
-@ph: 100/960;
+@ph: 100/1080;
 .swiper-inner {
     width: calc(~"1301*@{pw}vw");
     height: calc(~"630*@{ph}vh");

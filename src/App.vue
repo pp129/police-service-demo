@@ -5,6 +5,10 @@
 </template>
 
 <style lang="less">
+@font-face {
+    font-family: "SourceHanSansCN-Regular";
+    src: url("./assets/font/SourceHanSansCN-Regular.otf");
+}
 html,
 body {
     font-size: 62.5%;
@@ -13,8 +17,8 @@ body {
     list-style: none;
 }
 #app {
-    font-family: "Avenir", Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    font-family: "SourceHanSansCN-Regular", Helvetica, Arial, sans-serif;
+    // -webkit-font-smoothing: antialiased;
+    // -moz-osx-font-smoothing: grayscale;
 }
 </style>

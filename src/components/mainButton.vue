@@ -29,7 +29,7 @@ export default {
 <style scoped lang="less">
 //1px = 100 / window.innerHeight + ‘vh’
 @pw: 100/1920;
-@ph: 100/960;
+@ph: 100/1080;
 .main_button {
     cursor: pointer;
     .body {
@@ -64,7 +64,7 @@ export default {
         span {
             font-size: 3rem;
             color: #e7f3f8;
-            font-weight: bold;
+            font-weight: 500;
             margin-left: calc(~"14*@{pw}vw");
         }
     }

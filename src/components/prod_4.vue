@@ -14,7 +14,7 @@
                     供各部门使用，达到集约化建设的效果。
                 </div>
                 <div class="docks">
-                    <div class="docks_item" v-for="dock in docks">
+                    <div class="docks_item" v-for="dock in docks" :key="dock">
                         <div class="dock_text">{{ dock }}</div>
                         <div class="dock_pic"></div>
                     </div>

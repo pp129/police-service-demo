@@ -8,7 +8,7 @@ export default new Router({
     routes: [
         {
             path: "/",
-            redirect:"/business",
+            redirect: "/business",
             component: Home,
             children: [
                 {
@@ -29,6 +29,5 @@ export default new Router({
                 }
             ]
         }
-    ],
-    mode: "history"
+    ]
 });
