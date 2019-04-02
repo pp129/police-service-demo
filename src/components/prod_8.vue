@@ -62,8 +62,6 @@ export default {
 
 <style scoped lang="less" type="text/less">
 @import "../style/prod-common";
-@pw: 100/1920;
-@ph: 100/960;
 .prod_8 {
     ._main {
         width: 1426px;
@@ -93,7 +91,7 @@ export default {
                         top: 10px;
                         left: 10px;
                         width: calc(~"778*@{pw}vw");
-                        height: calc(~"418*@{ph}vh");
+                        height: calc(~"464*@{ph}vh");
                     }
                     &.swiper-slide-active {
                         width: calc(~"988*@{pw}vw");
@@ -102,10 +100,10 @@ export default {
                             no-repeat center;
                         left: -50px;
                         img {
-                            top: 58px;
+                            top: 20px;
                             left: 98px;
                             width: calc(~"778*@{pw}vw");
-                            height: calc(~"376*@{ph}vh");
+                            height: calc(~"416*@{ph}vh");
                         }
                     }
                 }

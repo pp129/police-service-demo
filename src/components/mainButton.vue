@@ -27,9 +27,6 @@ export default {
 </script>
 
 <style scoped lang="less">
-//1px = 100 / window.innerHeight + ‘vh’
-@pw: 100/1920;
-@ph: 100/1080;
 .main_button {
     cursor: pointer;
     .body {

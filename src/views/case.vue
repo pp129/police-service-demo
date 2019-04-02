@@ -55,8 +55,6 @@ export default {
 </script>
 
 <style scoped lang="less">
-@pw: 100/1920;
-@ph: 100/1080;
 .swiper-inner {
     width: calc(~"1301*@{pw}vw");
     height: calc(~"630*@{ph}vh");
@@ -75,8 +73,8 @@ export default {
         width: 555px;
         height: 506px;
         position: absolute;
-        top: 52px;
-        left: 100px;
+        top: 18px;
+        left: 98px;
     }
     p {
         position: absolute;
@@ -86,9 +84,9 @@ export default {
         margin-left: -257px;
         font-size: 38px;
         color: #47bcff;
-        bottom: -100px;
+        bottom: -155px;
         &.content_1 {
-            bottom: -54px;
+            bottom: -100px;
         }
     }
     &.swiper-slide-active {
@@ -96,14 +94,20 @@ export default {
         height: calc(~"683*@{ph}vh");
         background: url("../assets/案例大框.png") no-repeat center;
         img {
-            top: 66px;
+            top: 25px;
             left: 174px;
         }
         p {
             bottom: 0;
             color: #fff;
             &.content_1 {
-                bottom: 38px;
+                bottom: 15px;
+            }
+            &.content_2 {
+                bottom: -36px;
+            }
+            &.content_3 {
+                bottom: -36px;
             }
         }
     }

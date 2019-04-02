@@ -1,35 +1,49 @@
 <template>
-<div class="home">
-    <div class="title">
-        <div class="logo_content">
-            <img src :class="logo" alt>
-            <span>{{ title }}</span>
+    <div class="home">
+        <div class="title">
+            <div class="logo_content">
+                <img src :class="logo" alt />
+                <span>{{ title }}</span>
+            </div>
         </div>
-    </div>
-    <div class="btn_home">
-        <div class="icon_home" @click="returnHome()">
-            <i></i>
+        <div class="btn_home">
+            <div class="icon_home" @click="returnHome()">
+                <i></i>
+            </div>
+            <div
+                class="icon_refresh"
+                v-if="onlyMain"
+                @click="changeMain('/business')"
+            >
+                <i></i>
+            </div>
         </div>
-        <div class="icon_refresh" v-if="onlyMain" @click="changeMain('business')">
-            <i></i>
+        <div class="only_main" v-if="onlyMain">
+            <router-view></router-view>
         </div>
-    </div>
-    <div class="only_main" v-if="onlyMain">
-        <router-view></router-view>
-    </div>
-    <div class="main" v-if="!onlyMain">
-        <div class="main_body">
-            <router-view class="main_body_content"></router-view>
-        </div>
-        <div class="main_buttons">
-            <main-button ref="mainButton" class="button_item" v-for="(item, index) in mainButtons" :key="item.link" :class="[
+        <div class="main" v-if="!onlyMain">
+            <div class="main_body">
+                <router-view class="main_body_content"></router-view>
+            </div>
+            <div class="main_buttons">
+                <main-button
+                    ref="mainButton"
+                    class="button_item"
+                    v-for="(item, index) in mainButtons"
+                    :key="item.link"
+                    :class="[
                         'button_item_' + (index + 1),
                         item.selected ? 'bodyActive' : ''
-                    ]" :name="item.name" :link="item.link" :icon="item.icon" @callback="changeMain"></main-button>
+                    ]"
+                    :name="item.name"
+                    :link="item.link"
+                    :icon="item.icon"
+                    @callback="changeMain"
+                ></main-button>
+            </div>
         </div>
+        <div class="company"></div>
     </div>
-    <div class="company"></div>
-</div>
 </template>
 
 <script>
@@ -46,29 +60,38 @@ export default {
             logo: "logo",
             title: "北斗智慧警务云平台", //标题文字
             onlyMain: false, //是否只显示内容主体 --- 产品介绍
-            mainButtons: [{
+            mainButtons: [
+                {
                     name: "业务介绍",
                     link: "/business",
                     icon: "icon_business",
-                    selected: true
+                    selected: true,
+                    delay: 8000,
+                    onlyMain: false
                 },
                 {
                     name: "产品介绍",
                     link: "/product",
                     icon: "icon_product",
-                    selected: false
+                    selected: false,
+                    delay: 80000,
+                    onlyMain: true
                 },
                 {
                     name: "成功案例",
                     link: "/case",
                     icon: "icon_case",
-                    selected: false
+                    selected: false,
+                    delay: 36000,
+                    onlyMain: false
                 },
                 {
                     name: "荣誉资质",
                     link: "/honor",
                     icon: "icon_honor",
-                    selected: false
+                    selected: false,
+                    delay: 8000,
+                    onlyMain: true
                 }
             ],
             playIndex: 0,
@@ -81,31 +104,25 @@ export default {
             this.playIndex = _.findIndex(this.mainButtons, r => {
                 return r.link === this.$route.path;
             });
-            for(let i of this.mainButtons){
-                i.selected = false;
-                if(i.link===this.$route.path){
-                     i.selected = true;
-                }
+            let delay = this.mainButtons[this.playIndex].delay;
+            let onlyMain = this.mainButtons[this.playIndex].onlyMain;
+            for (let i of this.mainButtons) {
+                i.selected = i.link === this.$route.path;
             }
-            if (this.$route.path.indexOf("product") > 0) {
-                this.onlyMain = true;
-            }
-            this.autoPlay();
+            this.onlyMain = onlyMain;
+            this.resetInterval(delay);
         },
         changeMain(link) {
             this.$router.push(link);
-            // console.log(this.$route.path,this.mainButtons);
+            console.log(this.$route.path, link);
             this.playIndex = _.findIndex(this.mainButtons, r => {
-                return r.link === this.$route.path;
+                return r.link === link;
             });
-            if (this.playIndex === 1) {
-                this.resetInterval(80000);
-            } else if (this.playIndex === 2) {
-                this.resetInterval(36000);
-            } else {
-                this.resetInterval(8000);
-            }
-            this.onlyMain = link === "/product" || link === "/honor";
+            console.log(this.playIndex);
+            let delay = this.mainButtons[this.playIndex].delay;
+            let onlyMain = this.mainButtons[this.playIndex].onlyMain;
+            this.resetInterval(delay);
+            this.onlyMain = onlyMain;
             for (let i of this.mainButtons) {
                 i.selected = link === i.link;
             }
@@ -116,8 +133,7 @@ export default {
                 i.selected = i.link === "/business";
             }
             if (this.$route.path === "/business") {
-                let target = this.homeUrl;
-                window.location.href = target; //http是必要的
+                window.location.href = this.homeUrl; //http是必要的
             } else {
                 this.$router.push("/business");
             }
@@ -149,9 +165,6 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@pw: 100/1920;
-@ph: 100/1080;
-
 .home {
     width: 100vw;
     height: 100vh;
@@ -210,14 +223,17 @@ export default {
 
             i {
                 display: block;
-                width: calc(~"41*@{pw}vw");
-                height: calc(~"42*@{ph}vh");
-                background: url("../assets/icon_back.png") no-repeat;
+                width: calc(~"72*@{pw}vw");
+                height: calc(~"72*@{ph}vh");
+                background: url("../assets/返回亮.png") no-repeat;
             }
 
-            // &:hover {
-            //     i {}
-            // }
+            &:hover {
+                i {
+                    background: url("../assets/返回_1.png") no-repeat;
+                    background-size: cover;
+                }
+            }
         }
 
         .icon_home {
@@ -235,7 +251,8 @@ export default {
 
             &:hover {
                 i {
-                    background: url("../assets/icon_home_selected.png") no-repeat;
+                    background: url("../assets/icon_home_selected.png")
+                        no-repeat;
                     background-size: cover;
                 }
             }

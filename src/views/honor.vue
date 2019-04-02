@@ -80,8 +80,6 @@ export default {
 </script>
 
 <style scoped lang="less">
-@pw: 100/1920;
-@ph: 100/1080;
 .honor {
     display: flex;
     flex-direction: column;

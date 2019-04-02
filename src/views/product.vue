@@ -101,8 +101,6 @@ export default {
 };
 </script>
 <style scoped lang="less" type="text/less">
-@pw: 100/1920;
-@ph: 100/1080;
 .product {
     height: 100%;
     position: relative;
