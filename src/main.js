@@ -9,7 +9,8 @@ import _ from "lodash";
 import "swiper/dist/css/swiper.css";
 
 Vue.config.productionTip = false;
-Vue.prototype.homeUrl = process.env.NODE_ENV === 'production' ? url:'http://www.qq.com';
+Vue.prototype.homeUrl =
+    process.env.NODE_ENV === "production" ? HomeUrl : "http://www.qq.com";
 new Vue({
     router,
     store,

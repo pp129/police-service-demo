@@ -1,6 +1,8 @@
 const path = require("path");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 module.exports = {
     publicPath: "",
+    //注入LESS全局变量
     chainWebpack: config => {
         const types = ["vue-modules", "vue", "normal-modules", "normal"];
         types.forEach(type =>
@@ -13,6 +15,16 @@ module.exports = {
                 javascriptEnabled: true
             }
         }
+    },
+    configureWebpack: config => {
+        /*if (process.env.NODE_ENV === "production") {
+            // 为生产环境修改配置...
+        } else {
+            // 为开发环境修改配置...
+        }*/
+        return {
+            plugins: [new CopyWebpackPlugin([{ from: "config", to: "config" }])]
+        };
     }
 };
 function addStyleResource(rule) {

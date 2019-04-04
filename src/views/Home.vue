@@ -114,11 +114,11 @@ export default {
         },
         changeMain(link) {
             this.$router.push(link);
-            console.log(this.$route.path, link);
+            // console.log(this.$route.path, link);
             this.playIndex = _.findIndex(this.mainButtons, r => {
                 return r.link === link;
             });
-            console.log(this.playIndex);
+            // console.log(this.playIndex);
             let delay = this.mainButtons[this.playIndex].delay;
             let onlyMain = this.mainButtons[this.playIndex].onlyMain;
             this.resetInterval(delay);

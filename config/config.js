@@ -1,0 +1,1 @@
+var HomeUrl = '../首页/index.html';
