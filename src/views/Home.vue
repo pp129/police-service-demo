@@ -19,7 +19,7 @@
             </div>
         </div>
         <div class="only_main" v-if="onlyMain">
-            <router-view></router-view>
+            <router-view @callback="stay"></router-view>
         </div>
         <div class="main" v-if="!onlyMain">
             <div class="main_body">
@@ -156,6 +156,9 @@ export default {
             clearInterval(this.timer);
             this.delay = delay;
             this.autoPlay();
+        },
+        stay() {
+            clearInterval(this.timer);
         }
     },
     destroyed() {

@@ -1,6 +1,6 @@
 <template>
     <div class="product">
-        <div class="tip">产品介绍</div>
+        <div class="tip" @click="stay">产品介绍</div>
         <swiper :options="swiperOption" class="container">
             <swiper-slide
                 v-for="item in contents"
@@ -97,6 +97,11 @@ export default {
                 }
             ]
         };
+    },
+    methods: {
+        stay() {
+            this.$emit("callback");
+        }
     }
 };
 </script>
@@ -118,6 +123,7 @@ export default {
         line-height: 66px;
         text-align: left;
         text-indent: 70px;
+        z-index: 999;
     }
     .container {
         .swiper-button-prev {
