@@ -34,10 +34,11 @@ export default {
     data() {
         return {
             swiperOption: {
-                noSwiping: true,
-                autoplay: {
+                noSwiping: false,
+                /*autoplay: {
                     delay: 8000
-                },
+                },*/
+                autoplay: false,
                 navigation: {
                     nextEl: ".swiper-button-next",
                     prevEl: ".swiper-button-prev"

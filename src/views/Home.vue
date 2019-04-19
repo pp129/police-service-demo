@@ -94,6 +94,7 @@ export default {
                     onlyMain: true
                 }
             ],
+            autoLoop: false,
             playIndex: 0,
             delay: 8000,
             timer: null
@@ -110,7 +111,9 @@ export default {
                 i.selected = i.link === this.$route.path;
             }
             this.onlyMain = onlyMain;
-            this.resetInterval(delay);
+            if (this.autoLoop) {
+                this.resetInterval(delay);
+            }
         },
         changeMain(link) {
             this.$router.push(link);
@@ -121,7 +124,9 @@ export default {
             // console.log(this.playIndex);
             let delay = this.mainButtons[this.playIndex].delay;
             let onlyMain = this.mainButtons[this.playIndex].onlyMain;
-            this.resetInterval(delay);
+            if (this.autoLoop) {
+                this.resetInterval(delay);
+            }
             this.onlyMain = onlyMain;
             for (let i of this.mainButtons) {
                 i.selected = link === i.link;
@@ -138,7 +143,9 @@ export default {
                 this.$router.push("/business");
             }
             this.playIndex = 0;
-            this.resetInterval(8000);
+            if (this.autoLoop) {
+                this.resetInterval(8000);
+            }
         },
         autoPlay() {
             this.timer = setInterval(() => {
