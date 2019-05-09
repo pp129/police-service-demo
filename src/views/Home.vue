@@ -1,5 +1,5 @@
 <template>
-    <div class="home">
+    <div class="home" @click="ControlTime">
         <div class="title">
             <div class="logo_content">
                 <img src :class="logo" alt />
@@ -47,6 +47,7 @@
 </template>
 
 <script>
+let Seconds = 8000;
 export default {
     name: "home",
     mounted() {
@@ -66,15 +67,15 @@ export default {
                     link: "/business",
                     icon: "icon_business",
                     selected: true,
-                    delay: 8000,
+                    delay: Seconds, //8000,
                     onlyMain: false
                 },
                 {
                     name: "产品介绍",
-                    link: "/product",
+                    link: "/product/1",
                     icon: "icon_product",
                     selected: false,
-                    delay: 80000,
+                    delay: Seconds, // 80000,
                     onlyMain: true
                 },
                 {
@@ -82,7 +83,7 @@ export default {
                     link: "/case",
                     icon: "icon_case",
                     selected: false,
-                    delay: 36000,
+                    delay: Seconds, //36000,
                     onlyMain: false
                 },
                 {
@@ -90,21 +91,29 @@ export default {
                     link: "/honor",
                     icon: "icon_honor",
                     selected: false,
-                    delay: 8000,
+                    delay: Seconds, //8000,
                     onlyMain: true
                 }
             ],
-            autoLoop: false,
+            autoLoop: true,
             playIndex: 0,
-            delay: 8000,
-            timer: null
+            delay: Seconds, //8000,
+            timer: null,
+            timeOut: null
         };
     },
     methods: {
         init() {
-            this.playIndex = _.findIndex(this.mainButtons, r => {
-                return r.link === this.$route.path;
+            _.each(this.mainButtons, (e, i) => {
+                if (this.$route.path.indexOf("product") > -1) {
+                    this.playIndex = 1;
+                } else {
+                    if (e.link === this.$route.path) {
+                        this.playIndex = i;
+                    }
+                }
             });
+            console.log(this.playIndex);
             let delay = this.mainButtons[this.playIndex].delay;
             let onlyMain = this.mainButtons[this.playIndex].onlyMain;
             for (let i of this.mainButtons) {
@@ -117,13 +126,18 @@ export default {
         },
         changeMain(link) {
             this.$router.push(link);
-            // console.log(this.$route.path, link);
-            this.playIndex = _.findIndex(this.mainButtons, r => {
-                return r.link === link;
-            });
-            // console.log(this.playIndex);
+            console.log(this.$route.path, link);
+            if (link.indexOf("product") > -1) {
+                this.playIndex = 1;
+            } else {
+                this.playIndex = _.findIndex(this.mainButtons, r => {
+                    return r.link === link;
+                });
+            }
+            console.log(this.playIndex);
             let delay = this.mainButtons[this.playIndex].delay;
             let onlyMain = this.mainButtons[this.playIndex].onlyMain;
+            console.log(onlyMain);
             if (this.autoLoop) {
                 this.resetInterval(delay);
             }
@@ -165,11 +179,33 @@ export default {
             this.autoPlay();
         },
         stay() {
+            this.autoLoop = false;
             clearInterval(this.timer);
+            clearTimeout(this.timeOut);
+        },
+        ControlTime() {
+            console.log(this.delay);
+            clearInterval(this.timer);
+            this.delay = 20000;
+            this.resetInterval(this.delay);
+
+            this.timeOut = setTimeout(() => {
+                this.delay = 8000;
+                clearTimeout(this.timeOut);
+                this.resetInterval(this.delay);
+            }, 30000);
+        },
+        ChangeTime() {
+            for (let i of this.mainButtons) {
+                i.delay = this.delay;
+                console.log(i.delay);
+            }
+            this.autoPlay();
         }
     },
     destroyed() {
         clearInterval(this.timer);
+        clearTimeout(this.timeOut);
     }
 };
 </script>

@@ -1,7 +1,7 @@
 <template>
     <div class="product">
         <div class="tip" @click="stay">产品介绍</div>
-        <swiper :options="swiperOption" class="container">
+        <swiper :options="swiperOption" class="container" ref="swiper">
             <swiper-slide
                 v-for="item in contents"
                 :key="item.name"
@@ -99,7 +99,31 @@ export default {
             ]
         };
     },
+    computed: {
+        swiper() {
+            return this.$refs.swiper.swiper;
+        }
+    },
+    mounted() {
+        this.init();
+    },
     methods: {
+        init() {
+            console.log(this.$route);
+            if (
+                this.$route.params.autoLoop &&
+                this.$route.params.autoLoop === "2"
+            ) {
+                this.stay();
+                this.swiperOption.autoplay = {
+                    delay: 8000
+                };
+                this.swiper.autoplay.start();
+                // console.log(this.swiper)
+            }else{
+                console.log(11)
+            }
+        },
         stay() {
             this.$emit("callback");
         }

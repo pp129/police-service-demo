@@ -17,7 +17,7 @@ export default {
             contents: [
                 {
                     content: "厦门交警大数据分析应用平台",
-                    src: require("../assets/厦门交警大数据分析应用平台.png")
+                    src: require("../assets/厦门交警大数据分析应用平台.jpg")
                 },
                 {
                     content: "厦门市公安局可视化勤务指挥支撑平台",
